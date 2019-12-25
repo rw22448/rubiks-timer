@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Button from './Button';
 
 const Stopwatch = () => {
-  const [status, setStatus] = useState(false);
+  const [runningStatus, setrunningStatus] = useState(false);
   const [runningTime, setRunningTime] = useState(0);
   let timer = useRef(null);
 
   const handleClick = () => {
-    if (status) {
+    if (runningStatus) {
       clearInterval(timer.current);
     } else {
       const startTime = Date.now() - runningTime;
@@ -15,12 +16,12 @@ const Stopwatch = () => {
       });
     }
 
-    setStatus(!status);
+    setrunningStatus(!runningStatus);
   };
 
   const handleReset = () => {
     clearInterval(timer.current);
-    setStatus(false);
+    setrunningStatus(false);
     setRunningTime(0);
   };
 
@@ -32,9 +33,10 @@ const Stopwatch = () => {
 
   return (
     <div>
+      <h1>Stopwatch</h1>
       <p>{runningTime}ms</p>
-      <button onClick={handleClick}>{status ? 'Stop' : 'Start'}</button>
-      <button onClick={handleReset}>Reset</button>
+      <Button click={handleClick} primaryText='Start' status={!runningStatus} secondaryText='Stop' />
+      <Button click={handleReset} primaryText='Reset' status={true} secondaryText={null} />
     </div>
   );
 };
