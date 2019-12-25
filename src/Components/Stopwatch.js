@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Button from './Button';
 
 const Stopwatch = () => {
-  const [runningStatus, setrunningStatus] = useState(false);
+  const [runningStatus, setRunningStatus] = useState(false);
   const [runningTime, setRunningTime] = useState(0);
   let timer = useRef(null);
 
@@ -16,12 +16,12 @@ const Stopwatch = () => {
       });
     }
 
-    setrunningStatus(!runningStatus);
+    setRunningStatus(!runningStatus);
   };
 
   const handleReset = () => {
     clearInterval(timer.current);
-    setrunningStatus(false);
+    setRunningStatus(false);
     setRunningTime(0);
   };
 
