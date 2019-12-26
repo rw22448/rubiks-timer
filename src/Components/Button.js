@@ -7,13 +7,12 @@ const StyledButton = styled.button`
   color: #FFFFFF;
   justify-content: center;
   padding: 8px 40px;
-  margin: 4px;
   border-radius: 4px;
   border: none;
   background-color: #009EE2;
   outline: none;
-  width: 120px;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);;
+  width: 144px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
   
   transition: background-color 0.25s;
 

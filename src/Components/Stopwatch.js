@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Button from './Button';
+import Timer from './Timer';
+import styled from 'styled-components';
+
+const StyledButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 const Stopwatch = () => {
   const [runningStatus, setRunningStatus] = useState(false);
@@ -33,10 +40,12 @@ const Stopwatch = () => {
 
   return (
     <div>
-      <h1>Stopwatch</h1>
-      <p>{runningTime}ms</p>
-      <Button click={handleClick} primaryText='Start' status={!runningStatus} secondaryText='Stop' />
-      <Button click={handleReset} primaryText='Reset' status={true} secondaryText={null} />
+      <h1>rubiks timer</h1>
+      <Timer time={runningTime}/>
+      <StyledButtonGroup>
+        <Button click={handleClick} primaryText='Start' status={!runningStatus} secondaryText='Stop' />
+        <Button click={handleReset} primaryText='Reset' status={true} secondaryText={null} />
+      </StyledButtonGroup>
     </div>
   );
 };
